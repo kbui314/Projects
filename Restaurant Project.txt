@@ -55,7 +55,6 @@ Webpage
 
 + Contact page with feedback form for user experience
 + There should be a link to another stores menu/page
-+
 
 
 Extra 
