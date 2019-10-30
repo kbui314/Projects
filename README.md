@@ -8,4 +8,6 @@ Current Projects
 
 1. Unique Restuarant Chains -- Java
 2. Pizza Restaurant -- .NET
-
+3. Bailey Barista's Bar -- Any Stack
+4. Tech&Tea -- Any Stack - AWS Focus 
+5. User InyerFace -- Any Stack -- UI Focus
