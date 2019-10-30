@@ -1,0 +1,6 @@
+Our client is a local tea shop in the area that recently expanded with three additional stores. With new investments and a fresh logo they have hired us to create them a full stack web and mobile application that will be used by both customers and staff alike to create and store orders, manage rewards and get communiTea updates. 
+
+	The application we have set out to build will have an SPA front end that integrates AWS Services. We will be leveraging AWS Amplify’s framework to manage different Amazon cloud services and AWS Cognito for Authenitcation/Authorization. Pending the project owner's willingness we are also open to adding additional services if we can make a case for them. The application itself is apart of a two tiered project as pending application success we will be hired on to create a staff management system, so it is imperative we do a good job!
+
+The client delivered us the following User Stories
+
