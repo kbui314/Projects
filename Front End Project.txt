@@ -1,0 +1,14 @@
+Front End Project
+--------------
+
+Create a SPA that for a marketing firm that allows staff to 
+
+
+Technologies 
+--------------
+Angular or React.JS
+Amazon Web Services or Azure 
+
+User Stories
+---------------
+
