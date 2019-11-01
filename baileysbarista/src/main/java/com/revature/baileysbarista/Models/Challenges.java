@@ -1,4 +1,4 @@
-package com.revature.Models;
+package com.revature.baileysbarista.Models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,22 +12,22 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "challenge")
-public class challenges {
+public class Challenges {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column
-    private String challname;
+    private String challengename;
     @Column
-    private String challdesc;
+    private String challengedesc;
     @Column
     private int classid;
 
-    public challenges(int id, String challname, String challdesc, int classid) {
+    public Challenges(int id, String challengename, String challengedesc, int classid) {
         this.id = id;
-        this.challname = challname;
-        this.challdesc = challdesc;
+        this.challengename = challengename;
+        this.challengedesc = challengedesc;
         this.classid = classid;
     }
 
@@ -39,20 +39,20 @@ public class challenges {
         this.id = id;
     }
 
-    public String getChallname() {
-        return challname;
+    public String getChallengename() {
+        return challengename;
     }
 
-    public void setChallname(String challname) {
-        this.challname = challname;
+    public void setChallengename(String challengename) {
+        this.challengename = challengename;
     }
 
-    public String getChalldesc() {
-        return challdesc;
+    public String getChallengedesc() {
+        return challengedesc;
     }
 
-    public void setChalldesc(String challdesc) {
-        this.challdesc = challdesc;
+    public void setChallengedesc(String challengedesc) {
+        this.challengedesc = challengedesc;
     }
 
     public int getClassid() {

@@ -1,6 +1,7 @@
-package com.revature.Repositories;
+package com.revature.baileysbarista.Repositories;
 
-import com.revature.Models.Users;
+import com.revature.baileysbarista.Models.Users;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
