@@ -12,7 +12,8 @@ username TEXT NOT NULL,
 hash BYTEA NOT NULL,
 salt BYTEA NOT NULL, 
 dateenrolled DATE NOT NULL,
-userType TEXT NOT NULL
+userType TEXT NOT NULL,
+UNIQUE (username)
 );
 
 CREATE TABLE skill(
