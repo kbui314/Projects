@@ -1,4 +1,4 @@
-package com.revature.Models;
+package com.revature.baileysbarista.Models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "skill")
-public class skills {
+public class Skills {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class skills {
     @Column
     private String name;
 
-    public skills(int id, String name) {
+    public Skills(int id, String name) {
         this.id = id;
         this.name = name;
     }

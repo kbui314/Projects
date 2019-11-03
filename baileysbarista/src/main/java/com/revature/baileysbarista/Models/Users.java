@@ -1,7 +1,9 @@
-package com.revature.Models;
+package com.revature.baileysbarista.Models;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,13 +14,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import org.springframework.data.annotation.Transient;
+import javax.persistence.Transient;
 
 /**
  * users
  */
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,38 +31,35 @@ public class Users {
     @Column
     private byte[] hash;
     @Column
-    private byte[] salt; 
+    private byte[] salt;
     @Column
-    private Date dateenrolled;
+    private LocalDate dateenrolled;
     @Column
     private String usertype;
     @Transient
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "hasclasses", 
-        joinColumns = @JoinColumn(name = "userid"), 
-        inverseJoinColumns = @JoinColumn(name = "classid"))
-    Set<classes> userClasses;
-    
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "haschallenge", 
-        joinColumns = @JoinColumn(name = "userid"), 
-        inverseJoinColumns = @JoinColumn(name = "challid"))
-    Set<challenges> userChallenges;
+    @JoinTable(name = "hasclass", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "classid"))
+    Set<Classes> userClasses;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "hasskil", 
-        joinColumns = @JoinColumn(name = "userid"), 
-        inverseJoinColumns = @JoinColumn(name = "skillid"))
-    Set<skills> userSkills;
-    
+    @JoinTable(name = "haschallenge", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "challid"))
+    Set<Challenges> userChallenges;
 
-    public Users(int id, String username, String usertype, Date dateenrolled) {
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "hasskill", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "skillid"))
+    Set<Skills> userSkills;
+
+    public Users() {
+    }
+
+    public Users(int id, String username, String password, String usertype) {
+        super();
         this.id = id;
         this.username = username;
         this.usertype = usertype;
-        this.dateenrolled = dateenrolled;
+        this.password = password;
     }
 
     public int getId() {
@@ -95,11 +94,11 @@ public class Users {
         this.password = password;
     }
 
-    public Date getDateenrolled() {
+    public LocalDate getDateenrolled() {
         return dateenrolled;
     }
 
-    public void setDateenrolled(Date dateenrolled) {
+    public void setDateenrolled(LocalDate dateenrolled) {
         this.dateenrolled = dateenrolled;
     }
 
@@ -119,27 +118,36 @@ public class Users {
         this.hash = hash;
     }
 
-    public Set<classes> getUserClasses() {
+    public Set<Classes> getUserClasses() {
         return userClasses;
     }
 
-    public void setUserClasses(Set<classes> userClasses) {
+    public void setUserClasses(Set<Classes> userClasses) {
         this.userClasses = userClasses;
     }
 
-    public Set<challenges> getUserChallenges() {
+    public Set<Challenges> getUserChallenges() {
         return userChallenges;
     }
 
-    public void setUserChallenges(Set<challenges> userChallenges) {
+    public void setUserChallenges(Set<Challenges> userChallenges) {
         this.userChallenges = userChallenges;
     }
 
-    public Set<skills> getUserSkills() {
+    public Set<Skills> getUserSkills() {
         return userSkills;
     }
 
-    public void setUserSkills(Set<skills> userSkills) {
+    public void setUserSkills(Set<Skills> userSkills) {
         this.userSkills = userSkills;
     }
+
+    @Override
+    public String toString() {
+        return "Users [dateenrolled=" + dateenrolled + ", hash=" + Arrays.toString(hash) + ", id=" + id + ", salt="
+                + Arrays.toString(salt) + ", userChallenges=" + userChallenges + ", userClasses=" + userClasses
+                + ", userSkills=" + userSkills + ", username=" + username + ", usertype=" + usertype + "]";
+    }
+
+    
 }
