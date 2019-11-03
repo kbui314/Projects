@@ -1,5 +1,7 @@
 package com.revature.baileysbarista.Controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import com.revature.baileysbarista.Models.Users;
@@ -25,10 +27,10 @@ public class UserController {
     @Autowired
     UserService us;
     
-    // @GetMapping("/")
-    // public List<Users> hello(){
-    //     return us.getAll();
-    // }
+     @GetMapping("/all")
+     public List<Users> hello(){
+         return us.getAll();
+     }
     @GetMapping("/login")
     public String login(@RequestBody Users user,HttpSession session){
         return us.login(user,session);
@@ -53,5 +55,7 @@ public class UserController {
     public Users getUser(@PathVariable String username){
         return us.getUsers(username);
     }
+
+
 
 }

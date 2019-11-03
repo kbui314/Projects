@@ -19,14 +19,14 @@ public class HasChallenge {
     @Column(name = "id")
     private int id;
     @Column
-    private Users userid;
+    private int userid;
     @Column
-    private Challenges challengeid;
+    private int challengeid;
 
     public HasChallenge() {
     }
 
-    public HasChallenge(int id, Users userid, Challenges challengeid) {
+    public HasChallenge(int id, int userid, int challengeid) {
         this.id = id;
         this.userid = userid;
         this.challengeid = challengeid;
@@ -40,19 +40,19 @@ public class HasChallenge {
         this.id = id;
     }
 
-    public Users getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(Users userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 
-    public Challenges getChallengeid() {
+    public int getChallengeid() {
         return challengeid;
     }
 
-    public void setChallengeid(Challenges challengeid) {
+    public void setChallengeid(int challengeid) {
         this.challengeid = challengeid;
     }
     

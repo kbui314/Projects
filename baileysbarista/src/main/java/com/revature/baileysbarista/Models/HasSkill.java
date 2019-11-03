@@ -18,16 +18,16 @@ public class HasSkill {
 @Column(name = "id")
 private int id;
 @Column
-private Users userid;
+private int userid;
 @Column
-private Skills skillid;
+private int skillid;
 @Column
 private String endorse;
 
     public HasSkill() {
     }
 
-    public HasSkill(int id, Users userid, Skills skillid, String endorse) {
+    public HasSkill(int id, int userid, int skillid, String endorse) {
         this.id = id;
         this.userid = userid;
         this.skillid = skillid;
@@ -42,19 +42,19 @@ private String endorse;
         this.id = id;
     }
 
-    public Users getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(Users userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 
-    public Skills getSkillid() {
+    public int getSkillid() {
         return skillid;
     }
 
-    public void setSkillid(Skills skillid) {
+    public void setSkillid(int skillid) {
         this.skillid = skillid;
     }
 

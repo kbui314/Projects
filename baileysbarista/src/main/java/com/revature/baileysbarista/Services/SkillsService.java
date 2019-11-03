@@ -1,5 +1,9 @@
 package com.revature.baileysbarista.Services;
 
+import com.revature.baileysbarista.Models.Skills;
+import com.revature.baileysbarista.Repositories.SkillRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -7,6 +11,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SkillsService {
+    @Autowired
+    SkillRepository sr;
+	public void createSkill(Skills skill) {
+        sr.save(skill);
+	}
 
     
 }
