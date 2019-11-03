@@ -25,16 +25,17 @@ CREATE TABLE classes(
     id SERIAL PRIMARY KEY,
     classname TEXT NOT NULL,
     classdesc TEXT NOT NULL,
+    callengeid int REFERENCES challenge(id) on DELETE CASCADE,
     skillid int REFERENCES skill(id) on DELETE CASCADE,
     startdate DATE,
-    enrolled int
+    enrolled int,
+    rep int
 );
 
 CREATE TABLE challenge(
     id SERIAL PRIMARY KEY,
     challengename TEXT,
-    challengedesc TEXT,
-    classid int REFERENCES classes(id) on DELETE CASCADE
+    challengedesc TEXT
 );
 
 CREATE TABLE hasClass(
@@ -54,6 +55,7 @@ CREATE TABLE hasSkill(
 CREATE TABLE hasChallenge(
     id SERIAL PRIMARY KEY,
     userid int REFERENCES users(id) on DELETE CASCADE,
-    challid int REFERENCES challenge(id) on DELETE CASCADE
+    challid int REFERENCES challenge(id) on DELETE CASCADE,
+    status text
 );
 
