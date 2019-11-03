@@ -8,23 +8,24 @@ drop table if exists users;
 
 CREATE TABLE users(
 id SERIAL PRIMARY KEY,
-username TEXT,
-hash BYTEA,
-salt BYTEA, 
-dateenrolled DATE,
-userType TEXT
+username TEXT NOT NULL,
+hash BYTEA NOT NULL,
+salt BYTEA NOT NULL, 
+dateenrolled DATE NOT NULL,
+userType TEXT NOT NULL,
+UNIQUE (username)
 );
 
 CREATE TABLE skill(
-    id Serial PRIMARY KEY,
-    name TEXT
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
 );
 
 CREATE TABLE classes(
     id SERIAL PRIMARY KEY,
-    classname TEXT,
-    classdesc TEXT,
-    skillid int REFERENCES skill(id),
+    classname TEXT NOT NULL,
+    classdesc TEXT NOT NULL,
+    skillid int REFERENCES skill(id) on DELETE CASCADE,
     startdate DATE,
     enrolled int
 );
@@ -33,26 +34,26 @@ CREATE TABLE challenge(
     id SERIAL PRIMARY KEY,
     challengename TEXT,
     challengedesc TEXT,
-    classid int REFERENCES classes(id)
+    classid int REFERENCES classes(id) on DELETE CASCADE
 );
 
 CREATE TABLE hasClass(
     id SERIAL PRIMARY KEY,
-    userid int REFERENCES users(id),
-    classid int REFERENCES classes(id),
+    userid int REFERENCES users(id) on DELETE CASCADE,
+    classid int REFERENCES classes(id) on DELETE CASCADE,
     status TEXT
 
 );
 CREATE TABLE hasSkill(
     id SERIAL PRIMARY KEY,
-    userid int REFERENCES users(id),
-    skillid int REFERENCES skill(id),
+    userid int REFERENCES users(id) on DELETE CASCADE,
+    skillid int REFERENCES skill(id) on DELETE CASCADE,
     endorse TEXT
 );
 
 CREATE TABLE hasChallenge(
     id SERIAL PRIMARY KEY,
-    userid int REFERENCES users(id),
-    challid int REFERENCES challenge(id)
+    userid int REFERENCES users(id) on DELETE CASCADE,
+    challid int REFERENCES challenge(id) on DELETE CASCADE
 );
 
