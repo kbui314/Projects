@@ -19,16 +19,16 @@ public class HasClass {
     @Column(name = "id")
     private int id;
     @Column
-    private Users userid;
+    private int userid;
     @Column
-    private Classes classid;
+    private int classid;
     @Column
     private String status;
 
     public HasClass() {
     }
 
-    public HasClass(int id, Users userid, Classes classid, String status) {
+    public HasClass(int id, int userid, int classid, String status) {
         this.id = id;
         this.userid = userid;
         this.classid = classid;
@@ -43,19 +43,19 @@ public class HasClass {
         this.id = id;
     }
 
-    public Users getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(Users userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 
-    public Classes getClassid() {
+    public int getClassid() {
         return classid;
     }
 
-    public void setClassid(Classes classid) {
+    public void setClassid(int classid) {
         this.classid = classid;
     }
 

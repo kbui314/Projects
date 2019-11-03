@@ -2,6 +2,7 @@ package com.revature.baileysbarista.Models;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
