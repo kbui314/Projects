@@ -23,7 +23,7 @@ public class HasClass {
     @Column
     private int classid;
     @Column
-    private String status;
+    private String class_status;
 
     public HasClass() {
     }
@@ -32,7 +32,7 @@ public class HasClass {
         this.id = id;
         this.userid = userid;
         this.classid = classid;
-        this.status = status;
+        this.class_status = status;
     }
 
     public int getId() {
@@ -60,11 +60,11 @@ public class HasClass {
     }
 
     public String getStatus() {
-        return status;
+        return class_status;
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.class_status = status;
     }
 
 }

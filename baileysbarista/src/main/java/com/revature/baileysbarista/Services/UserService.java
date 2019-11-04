@@ -3,7 +3,7 @@ package com.revature.baileysbarista.Services;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 
     public void createNew(Users user) {
 		Users newUser = user;
-		LocalDate date = LocalDate.now();
+		LocalDateTime date = LocalDateTime.now();
 		newUser.setDateenrolled(date);
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
