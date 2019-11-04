@@ -22,14 +22,17 @@ public class HasChallenge {
     private int userid;
     @Column
     private int challengeid;
+    @Column
+    private String challengestatus;
 
     public HasChallenge() {
     }
 
-    public HasChallenge(int id, int userid, int challengeid) {
+    public HasChallenge(int id, int userid, int challengeid, String challengestatus) {
         this.id = id;
         this.userid = userid;
         this.challengeid = challengeid;
+        this.challengestatus = challengestatus;
     }
 
     public int getId() {
@@ -54,6 +57,14 @@ public class HasChallenge {
 
     public void setChallengeid(int challengeid) {
         this.challengeid = challengeid;
+    }
+
+    public String getChallengestatus() {
+        return challengestatus;
+    }
+
+    public void setChallengestatus(String challengestatus) {
+        this.challengestatus = challengestatus;
     }
     
 }

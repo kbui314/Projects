@@ -30,14 +30,17 @@ public class Classes {
     private Date startdate;
     @Column
     private int enrolled;
+    @Column
+    private int rep;
 
-    public Classes(int id, String classname, String classdesc, int skillid, Date startdate, int enrolled) {
+    public Classes(int id, String classname, String classdesc, int skillid, Date startdate, int enrolled, int rep) {
         this.id = id;
         this.classname = classname;
         this.classdesc = classdesc;
         this.skillid = skillid;
         this.startdate = startdate;
         this.enrolled = enrolled;
+        this.rep = rep;
     }
 
     public int getId() {
@@ -88,5 +91,11 @@ public class Classes {
         this.enrolled = enrolled;
     }
 
-    
+    public int getRep() {
+        return rep;
+    }
+
+    public void setRep(int rep) {
+        this.rep = rep;
+    }
 }

@@ -17,6 +17,8 @@ public class ChallengeService {
     public void createChallenges(Challenges challenge) {
         cr.save(challenge);
     }
-    
-    
+
+	public void deleteChallenge(int id) {
+        cr.deleteById(id);
+    }   
 }
