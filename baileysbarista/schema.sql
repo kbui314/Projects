@@ -26,7 +26,7 @@ CREATE TABLE classes(
     classname TEXT NOT NULL,
     classdesc TEXT NOT NULL,
     skillid int REFERENCES skill(id) on DELETE CASCADE,
-    startdate DATE,
+    startdate TIMESTAMP,
     enrolled int,
     rep int
 );
