@@ -28,8 +28,11 @@ public class UserController {
     UserService us;
     
      @GetMapping("/all")
-     public List<Users> hello(){
-         return us.getAll();
+     public List<Users> hello(HttpSession session){
+         if(session.getAttribute("userType").equals("Bailey")){
+            return us.getAll();
+         }
+         return null;
      }
     @GetMapping("/login")
     public String login(@RequestBody Users user,HttpSession session){
