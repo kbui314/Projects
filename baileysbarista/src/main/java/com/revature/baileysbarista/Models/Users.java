@@ -1,8 +1,7 @@
 package com.revature.baileysbarista.Models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -34,7 +33,7 @@ public class Users {
     @Column
     private byte[] salt;
     @Column
-    private LocalDate dateenrolled;
+    private LocalDateTime dateenrolled;
     @Column
     private String usertype;
     @Transient
@@ -45,7 +44,7 @@ public class Users {
     Set<Classes> userClasses;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "haschallenge", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "challid"))
+    @JoinTable(name = "haschallenge", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "challengeid"))
     Set<Challenges> userChallenges;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -95,11 +94,11 @@ public class Users {
         this.password = password;
     }
 
-    public LocalDate getDateenrolled() {
+    public LocalDateTime getDateenrolled() {
         return dateenrolled;
-    }
+    }   
 
-    public void setDateenrolled(LocalDate dateenrolled) {
+    public void setDateenrolled(LocalDateTime dateenrolled) {
         this.dateenrolled = dateenrolled;
     }
 

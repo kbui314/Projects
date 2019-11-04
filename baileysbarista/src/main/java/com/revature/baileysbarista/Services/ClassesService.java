@@ -1,5 +1,7 @@
 package com.revature.baileysbarista.Services;
 
+import java.time.LocalDateTime;
+
 import com.revature.baileysbarista.Models.Classes;
 import com.revature.baileysbarista.Repositories.ClassRepository;
 
@@ -15,6 +17,8 @@ public class ClassesService {
     ClassRepository cr;
 
     public void createClasses(Classes classes) {
+        LocalDateTime startdate = LocalDateTime.now();
+        classes.setStartdate(startdate);
         cr.save(classes);
     }
     
