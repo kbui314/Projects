@@ -16,6 +16,9 @@ public class SkillsService {
 	public void createSkill(Skills skill) {
         sr.save(skill);
 	}
+	public void deleteSkill(int id) {
+        sr.deleteById(id);
+	}
 
     
 }
