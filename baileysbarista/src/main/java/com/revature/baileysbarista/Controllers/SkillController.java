@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
+import com.revature.baileysbarista.Models.HasSkill;
 import com.revature.baileysbarista.Models.Skills;
+import com.revature.baileysbarista.Services.HasSkillService;
 import com.revature.baileysbarista.Services.SkillsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class SkillController {
     @Autowired
     SkillsService ss;
+    @Autowired
+    HasSkillService hss;
     @PostMapping("/create")
     public String createSkill(@RequestBody Skills skill, HttpSession session) {
         String userType = (String)session.getAttribute("userType");
@@ -46,4 +50,13 @@ public class SkillController {
             return (userType);
 
     }
+    
+        @PostMapping("/addskill/{id}")
+        public String addSkilltoMatrix(@PathVariable int id, HttpSession session){
+            int userId = (int)session.getAttribute("id");
+            HasSkill hasSkill = new HasSkill(0,userId,id, null);
+            hss.AddSkill(hasSkill);
+            return "Sucess";
+
+        }
 }
