@@ -63,15 +63,22 @@ public class UserController {
         return us.getUsers(username);
     }
     @PutMapping("/endorse/{id}/{skillid}")
-    public String endorseSkill(@PathVariable int id, @PathVariable int skillid){
-        hss.updateSkillEndorsement("verified", id, skillid);
-        return "Success";
+    public String endorseSkill(@PathVariable int id, @PathVariable int skillid, HttpSession session){
+        String userType = (String)session.getAttribute("userType");
+        if(userType.equals("Bailey")){
+            hss.updateSkillEndorsement("verified", id, skillid);
+            return "Success";
+        }return "unauthorized";
     }
 
     @PutMapping("/unendorse/{id}/{skillid}")
-    public String unendorseSkill(@PathVariable int id, @PathVariable int skillid){
-        hss.updateSkillEndorsement("unverified", id, skillid);
-        return "Success";
+    public String unendorseSkill(@PathVariable int id, @PathVariable int skillid, HttpSession session){
+        String userType = (String)session.getAttribute("userType");
+            if(userType.equals("Bailey")){
+                hss.updateSkillEndorsement("unverified", id, skillid);
+                return "Success";
+            }
+        return "unauthorized User";
     }
     
 
