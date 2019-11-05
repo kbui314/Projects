@@ -42,5 +42,8 @@ public class Skills {
         this.name = name;
     }
 
+    public Skills() {
+    }
+
     
 }
