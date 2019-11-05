@@ -5,12 +5,14 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.revature.baileysbarista.Models.Users;
+import com.revature.baileysbarista.Services.HasSkillService;
 import com.revature.baileysbarista.Services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +28,8 @@ public class UserController {
 
     @Autowired
     UserService us;
+    @Autowired
+    HasSkillService hss;
     
      @GetMapping("/all")
      public List<Users> hello(HttpSession session){
@@ -58,7 +62,18 @@ public class UserController {
     public Users getUser(@PathVariable String username){
         return us.getUsers(username);
     }
+    @PutMapping("/endorse/{id}/{skillid}")
+    public String endorseSkill(@PathVariable int id, @PathVariable int skillid){
+        hss.updateSkillEndorsement("verified", id, skillid);
+        return "Success";
+    }
 
+    @PutMapping("/unendorse/{id}/{skillid}")
+    public String unendorseSkill(@PathVariable int id, @PathVariable int skillid){
+        hss.updateSkillEndorsement("unverified", id, skillid);
+        return "Success";
+    }
+    
 
 
 }
