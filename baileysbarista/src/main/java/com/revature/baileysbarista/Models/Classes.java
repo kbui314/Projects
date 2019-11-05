@@ -1,6 +1,6 @@
 package com.revature.baileysbarista.Models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,13 +27,13 @@ public class Classes {
     @Column
     private int skillid;
     @Column
-    private LocalDateTime startdate;
+    private LocalDate startdate;
     @Column
     private int enrolled;
     @Column
     private int rep;
 
-    public Classes(int id, String classname, String classdesc, int skillid, LocalDateTime startdate, int enrolled, int rep) {
+    public Classes(int id, String classname, String classdesc, int skillid, LocalDate startdate, int enrolled, int rep) {
         this.id = id;
         this.classname = classname;
         this.classdesc = classdesc;
@@ -75,11 +75,11 @@ public class Classes {
         this.skillid = skillid;
     }
 
-    public LocalDateTime getStartdate() {
+    public LocalDate getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(LocalDateTime startdate) {
+    public void setStartdate(LocalDate startdate) {
         this.startdate = startdate;
     }
 
