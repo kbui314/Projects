@@ -9,6 +9,8 @@ import com.revature.baileysbarista.Models.Skills;
 import com.revature.baileysbarista.Services.SkillsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -31,5 +33,17 @@ public class SkillController {
             return ("Success");
         }
         return (userType);
+      
+        }
+        @DeleteMapping("/delete/{id}")
+        public String DeleteSkill(@PathVariable int id, HttpSession session){
+            String userType = (String)session.getAttribute("userType");
+            
+            if(userType.equals("Bailey")){
+                ss.deleteSkill(id);
+                return "success";
+            }
+            return (userType);
+
     }
 }

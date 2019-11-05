@@ -32,16 +32,5 @@ public class ChallengesController {
             return ("Success");
         }
         return (userType);
-    }
-    @DeleteMapping("/delete/{id}")
-    public String DeleteChallenge(@PathVariable int id, HttpSession session){
-        String userType = (String)session.getAttribute("userType");
-        
-        if(userType.equals("Bailey")){
-            chs.deleteChallenge(id);
-            return ("Success");
-        }
-        return (userType);
-    }
-    
+    }    
 }
